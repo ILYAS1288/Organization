@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Event() {
+export default function Member() {
   return (
     <div>
-        <h1>Event</h1>
+        <h1> Member</h1>
         
     </div>
   )
