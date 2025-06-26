@@ -22,7 +22,7 @@ export default function Header() {
           Organization
         </Link>
 
-        {/* Hamburger button (small screens) */}
+        {/* button (small screens) */}
         <button
           onClick={() => setOpen(!open)}
           className="inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-gray-100 focus:outline-none md:hidden"
