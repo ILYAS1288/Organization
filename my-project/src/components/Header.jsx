@@ -17,7 +17,7 @@ export default function Header() {
   return (
     <header className="bg-white shadow-md fixed inset-x-0 top-0 z-50">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-6">
-        {/* Logo */}
+       
         <Link to="/" className="text-2xl font-bold text-indigo-600">
           Organization
         </Link>
@@ -35,7 +35,7 @@ export default function Header() {
             stroke="currentColor"
           >
             {open ? (
-              // X icon
+             
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -43,7 +43,7 @@ export default function Header() {
                 d="M6 18L18 6M6 6l12 12"
               />
             ) : (
-              // Hamburger icon
+             
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
