@@ -1,10 +1,66 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { FaGraduationCap, FaBook, FaChalkboardTeacher, FaTrash } from 'react-icons/fa';
 
 export default function Event() {
+  const [events, setEvents] = useState([
+    { id: 1, title: 'React Basics Workshop', icon: <FaChalkboardTeacher /> },
+    { id: 2, title: 'Advanced JavaScript', icon: <FaBook /> },
+    { id: 3, title: 'Graduation Ceremony', icon: <FaGraduationCap /> },
+  ]);
+
+  const [newEvent, setNewEvent] = useState('');
+
+  const handleAdd = () => {
+    if (newEvent.trim() === '') return;
+    const id = Date.now();
+    const icons = [<FaChalkboardTeacher />, <FaBook />, <FaGraduationCap />];
+    const icon = icons[Math.floor(Math.random() * icons.length)];
+    setEvents([...events, { id, title: newEvent, icon }]);
+    setNewEvent('');
+  };
+
+  const handleDelete = (id) => {
+    setEvents(events.filter((event) => event.id !== id));
+  };
+
   return (
-    <div>
-        <h1>Event</h1>
-        
+    <div className="min-h-screen bg-gray-100 p-6">
+      <h1 className="text-3xl font-bold text-center text-indigo-600 mb-8">Educational Events</h1>
+
+      {/* Add Event Input */}
+      <div className="flex flex-col sm:flex-row items-center justify-center mb-8 gap-4">
+        <input
+          type="text"
+          className="w-full sm:w-1/2 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
+          placeholder="Add a new educational event"
+          value={newEvent}
+          onChange={(e) => setNewEvent(e.target.value)}
+        />
+        <button
+          className="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition"
+          onClick={handleAdd}
+        >
+          Add Event
+        </button>
+      </div>
+
+      {/* Grid Layout */}
+      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        {events.map((event) => (
+          <div key={event.id} className="bg-white p-6 rounded-xl shadow-md flex justify-between items-center">
+            <div className="flex items-center gap-3 text-indigo-600 text-xl">
+              <span>{event.icon}</span>
+              <span className="text-gray-800 text-base font-medium">{event.title}</span>
+            </div>
+            <button
+              className="text-red-500 hover:text-red-700"
+              onClick={() => handleDelete(event.id)}
+            >
+              <FaTrash />
+            </button>
+          </div>
+        ))}
+      </div>
     </div>
-  )
+  );
 }
