@@ -27,7 +27,6 @@ export default function Home() {
           </button>
         </motion.div>
 
-        {/* Image */}
         <motion.div
           initial={{ x: 40, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
