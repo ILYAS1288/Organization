@@ -1,6 +1,7 @@
 let express = require('express');
 let mongoose = require('mongoose');
 let cors = require('cors');
+require('dotenv').config();
 
 require('dotenv').config();
 let app = express();
@@ -15,8 +16,8 @@ const adminUserRoutes = require('./routes/adminUser');
 
 app.use(logger);
 
-app.use('/api/members', memberRoutes);
-app.use('/api/contacts', contactRoutes);
+app.use('/api/member', memberRoutes);
+app.use('/api/contact', contactRoutes);
 app.use('/api/admin-users', adminUserRoutes);
 
 app.use((err, req, res, next) => {
@@ -27,6 +28,8 @@ app.use((err, req, res, next) => {
 //Connect to MongoDB
 mongoose.connect(process.env.DBURL).then(() => {
     console.log('Connected to MongoDB');
+    console.log('//localhost:27017/yourdbname:', process.env.DBURL);
+    console.log('3000:', process.env.PORT);
     app.listen(process.env.PORT || 3000, () => {
         console.log('Server is running');
     })

@@ -50,7 +50,7 @@ export default function Login() {
             <a href="#" className="text-indigo-600 hover:underline">Reset it</a>
           </p>
           <p className="mt-2">
-            Don’t have an account?{" "}
+            Don't have an account?{" "}
             <a href="#" className="text-indigo-600 hover:underline">Sign up</a>
           </p>
         </div>
