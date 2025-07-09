@@ -1,9 +1,9 @@
+// routes/member.js
 const express = require('express');
 const router = express.Router();
 
-// Example GET route
 router.get('/', (req, res) => {
-  res.json({ message: 'Admin User route is working!' });
+  res.json({ message: 'Member route' });
 });
 
-module.exports = router; 
+module.exports = router;
