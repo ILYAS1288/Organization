@@ -3,7 +3,7 @@ const router = express.Router();
 const Contact = require('../models/contact');
 const validateContact = require('../middleware/validateContact');
 
-// GET all contacts
+
 router.get('/', async (req, res) => {
   try {
     const contacts = await Contact.find();
@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// POST a new contact
+
 router.post('/', validateContact, async (req, res) => {
   try {
     const contact = new Contact(req.body);

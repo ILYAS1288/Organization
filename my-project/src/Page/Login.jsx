@@ -1,13 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaUserAlt, FaLock } from 'react-icons/fa';
 
 export default function Login() {
+  const [form, setForm] = useState({ email: '', password: '' });
+  const [message, setMessage] = useState('');
+
+  const handleChange = e => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+    // Send login data to backend
+    const res = await fetch('http://localhost:5173/api/admin-users/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: form.email, password: form.password }), // assuming backend expects 'username'
+    });
+    const data = await res.json();
+    if (res.ok) {
+      setMessage('Login successful!');
+      // You can redirect or save token here
+    } else {
+      setMessage(data.error || 'Login failed');
+    }
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-100 to-white p-6">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8 ring-1 ring-gray-200">
         <h1 className="text-3xl font-bold text-center text-indigo-700 mb-8">Login to Your Account</h1>
         
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit={handleSubmit}>
           {/* Email */}
           <div>
             <label className="block text-gray-700 mb-2">Email Address</label>
@@ -15,8 +39,12 @@ export default function Login() {
               <FaUserAlt className="text-gray-400 mr-3" />
               <input
                 type="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
                 placeholder="you@example.com"
                 className="w-full outline-none text-gray-700"
+                required
               />
             </div>
           </div>
@@ -28,8 +56,12 @@ export default function Login() {
               <FaLock className="text-gray-400 mr-3" />
               <input
                 type="password"
+                name="password"
+                value={form.password}
+                onChange={handleChange}
                 placeholder="••••••••"
                 className="w-full outline-none text-gray-700"
+                required
               />
             </div>
           </div>
@@ -41,6 +73,7 @@ export default function Login() {
           >
             Login
           </button>
+          {message && <p className="text-center text-red-600 mt-2">{message}</p>}
         </form>
 
         {/* Extra Links */}

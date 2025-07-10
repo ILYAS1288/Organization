@@ -5,15 +5,15 @@ require('dotenv').config();
 
 const app = express();
 
-// === MIDDLEWARES ===
+
 app.use(cors());
 app.use(express.json());
 
-// === CUSTOM MIDDLEWARE ===
+
 const logger = require('./middleware/logger');
 app.use(logger);
 
-// === ROUTES ===
+
 const memberRoutes = require('./routes/member');
 const contactRoutes = require('./routes/contact');
 const adminUserRoutes = require('./routes/adminUser');
@@ -22,18 +22,17 @@ app.use('/api/member', memberRoutes);
 app.use('/api/contact', contactRoutes);
 app.use('/api/admin-users', adminUserRoutes);
 
-// === ROOT ROUTE (Health check) ===
 app.get('/', (req, res) => {
   res.send('API is running...');
 });
 
-// === GLOBAL ERROR HANDLER ===
+
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ error: ' Something went wrong!' });
 });
 
-// === CONNECT TO MONGODB AND START SERVER ===
+
 const PORT = process.env.PORT || 3000;
 const DBURL = process.env.DBURL;
 
