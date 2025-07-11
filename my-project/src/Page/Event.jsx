@@ -16,7 +16,7 @@ export default function Event() {
     const icons = [<FaChalkboardTeacher />, <FaBook />, <FaGraduationCap />];
     const icon = icons[Math.floor(Math.random() * icons.length)];
     setEvents([...events, { id, title: newEvent, icon }]);
-    setNewEvent('');
+    setNewEvent(''); 
   };
 
   const handleDelete = (id) => {

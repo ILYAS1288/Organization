@@ -15,12 +15,13 @@ export default function Login() {
     const res = await fetch('http://localhost:5173/api/admin-users/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username: form.email, password: form.password }), // assuming backend expects 'username'
+      body: JSON.stringify({ username: form.email, password: form.password }), 
     });
     const data = await res.json();
+    
     if (res.ok) {
       setMessage('Login successful!');
-      // You can redirect or save token here
+      
     } else {
       setMessage(data.error || 'Login failed');
     }

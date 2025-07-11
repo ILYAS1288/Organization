@@ -17,10 +17,12 @@ app.use(logger);
 const memberRoutes = require('./routes/member');
 const contactRoutes = require('./routes/contact');
 const adminUserRoutes = require('./routes/adminUser');
+const eventRoutes = require('./routes/event');
 
 app.use('/api/member', memberRoutes);
 app.use('/api/contact', contactRoutes);
 app.use('/api/admin-users', adminUserRoutes);
+app.use('/api/event', eventRoutes);
 
 app.get('/', (req, res) => {
   res.send('API is running...');
