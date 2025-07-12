@@ -28,6 +28,7 @@ app.get('/', (req, res) => {
   res.send('API is running...');
 });
 
+// Error handling middleware
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
@@ -43,6 +44,7 @@ if (!DBURL) {
   process.exit(1);
 }
 
+// Connect to MongoDB
 mongoose.connect(DBURL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
