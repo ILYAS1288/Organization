@@ -10,13 +10,30 @@ export default function Event() {
 
   const [newEvent, setNewEvent] = useState('');
 
-  const handleAdd = () => {
+  const handleAdd = async () => {
     if (newEvent.trim() === '') return;
-    const id = Date.now();
-    const icons = [<FaChalkboardTeacher />, <FaBook />, <FaGraduationCap />];
-    const icon = icons[Math.floor(Math.random() * icons.length)];
-    setEvents([...events, { id, title: newEvent, icon }]);
-    setNewEvent(''); 
+
+    try {
+      const res = await fetch('http://localhost:3000/api/event', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title: newEvent }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        const id = data.id || Date.now(); 
+        const icons = [<FaChalkboardTeacher />, <FaBook />, <FaGraduationCap />];
+        const icon = icons[Math.floor(Math.random() * icons.length)];
+        setEvents([...events, { id, title: newEvent, icon }]);
+        setNewEvent('');
+      } else {
+        console.error('Failed to add event:', data.message);
+      }
+    } catch (error) {
+      console.error('Error while adding event:', error);
+    }
   };
 
   const handleDelete = (id) => {
