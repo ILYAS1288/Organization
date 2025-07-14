@@ -27,6 +27,8 @@ export default function Login() {
       if (res.ok) {
         setMessage('Login successful!');
         // Optionally store token: localStorage.setItem('token', data.token);
+
+        
       } else {
         setMessage(data.error || 'Login failed');
       }

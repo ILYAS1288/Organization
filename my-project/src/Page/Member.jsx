@@ -30,6 +30,7 @@ const members = [
 
 export default function Member() {
   return (
+    
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-white p-6">
       <h1 className="text-4xl font-bold text-center text-indigo-700 mb-12">Our Team Members</h1>
 

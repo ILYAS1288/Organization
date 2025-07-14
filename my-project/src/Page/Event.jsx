@@ -11,7 +11,8 @@ export default function Event() {
   const [newEvent, setNewEvent] = useState('');
 
   const handleAdd = async () => {
-    if (newEvent.trim() === '') return;
+    
+    if (newEvent.trim() === '') return;  
 
     try {
       const res = await fetch('http://localhost:3000/api/event', {

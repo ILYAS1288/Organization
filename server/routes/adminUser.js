@@ -1,8 +1,8 @@
-// routes/adminUsers.js
+
 const express = require('express');
 const router = express.Router();
 
-// POST /api/admin-users/login
+
 router.post('/login', (req, res) => {
   const { username, password } = req.body;
 
