@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Add a new event
+// Add  new event
 router.post('/', async (req, res) => {
   try {
     const { title } = req.body;
