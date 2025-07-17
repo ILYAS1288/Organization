@@ -14,7 +14,7 @@ export default function Login() {
     setMessage('');
 
     try {
-      const res = await fetch('http://localhost:3000/api/admin-users/login', {
+      const res = await fetch('http://localhost:3000/api/AdminUser/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username: form.email, password: form.password }),

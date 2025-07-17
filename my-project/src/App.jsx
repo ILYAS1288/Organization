@@ -3,11 +3,12 @@ import Header from "./components/Header"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./page/Home";
 import Footer from "./components/Footer";
-import Service from "./page/Service";
-import Contact from "./page/Contact";
+import Service from "./Page/Service";
+import Contact from "./Page/Contact";
 import Member from "./Page/Member";
 import Event from "./page/Event";
 import Login from "./page/Login";
+import AdminUser from "./Page/AdminUser";
 function App() {
 return(
   <div>
@@ -23,6 +24,7 @@ return(
           <Route path="/member" element={<Member />} />
           <Route path="/event" element={<Event />} />
           <Route path="/login" element={<Login/>} />
+          <Route path="/admin/user" element={<AdminUser/>} />
         </Routes>
 </main>
   <Footer/>

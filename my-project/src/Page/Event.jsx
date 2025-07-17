@@ -45,7 +45,7 @@ export default function Event() {
     <div className="min-h-screen bg-gray-100 p-6">
       <h1 className="text-3xl font-bold text-center text-indigo-600 mb-8">Educational Events</h1>
 
-      {/* Add Event Input */}
+      {/* Add Event  */}
       <div className="flex flex-col sm:flex-row items-center justify-center mb-8 gap-4">
         <input
           type="text"
