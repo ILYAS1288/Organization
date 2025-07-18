@@ -62,6 +62,7 @@ export default function Event() {
         </button>
       </div>
 
+{/* after add event save the page screen */}
       {/* Grid Layout */}
       <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {events.map((event) => (
@@ -78,6 +79,8 @@ export default function Event() {
             </button>
           </div>
         ))}
+
+
       </div>
     </div>
   );
