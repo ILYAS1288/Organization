@@ -48,6 +48,7 @@ export default function Member() {
                 <a href="#"><FaFacebookF className="hover:text-indigo-800" /></a>
                 <a href="#"><FaTwitter className="hover:text-indigo-800" /></a>
                 <a href="#"><FaLinkedinIn className="hover:text-indigo-800" /></a>
+                
               </div>
             </div>
           </div>

@@ -5,6 +5,7 @@ require('dotenv').config();
 
 const app = express();
 
+// Middleware setup
 
 app.use(cors());
 app.use(express.json());
@@ -45,6 +46,8 @@ if (!DBURL) {
 }
 
 // Connect to MongoDB
+
+
 mongoose.connect(DBURL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
