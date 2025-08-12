@@ -26,6 +26,12 @@ const members = [
     role: 'Mobile Developer',
     image: '/images/4.jpg',
   },
+  {
+    id: 4,
+    name: 'Usman Tariq',
+    role: 'Mobile Developer',
+    image: '/images/4.jpg',
+  },
 ];
 
 export default function Member() {

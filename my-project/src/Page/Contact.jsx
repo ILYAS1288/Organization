@@ -30,7 +30,7 @@ export default function Contact() {
 
       {/* Contact Info & Form */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto bg-white rounded-xl shadow-md p-8">
-        {/* Contact Information */}
+        {/* Contact ---Information */}
         
         <div className="space-y-6">
           <div className="flex items-center gap-4">
