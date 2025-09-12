@@ -24,6 +24,8 @@ export default function Contact() {
     }
   };
 
+
+  
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <h1 className="text-3xl font-bold text-center text-indigo-700 mb-10">Contact Us</h1>

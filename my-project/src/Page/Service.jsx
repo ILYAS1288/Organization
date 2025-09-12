@@ -22,7 +22,6 @@ const services = [
     icon: <FaLaptopCode className="text-4xl text-indigo-600" />,
   },
 ];
-
 export default function Service() {
   return (
     <div className="min-h-screen bg-gray-100 p-6">
